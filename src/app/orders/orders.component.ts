@@ -56,10 +56,10 @@ export class OrdersComponent implements OnInit {
     const commaIndex = this.name.indexOf(', ');
     let error = false;
     if (this.name === '') {
-      this.errorMessage = 'Name must not be empty!';
+      this.errorMessage = 'First Name, Last Name must be defined!';
       error = true;
     } else if (commaIndex === -1) {
-      this.errorMessage = 'Name must have a comma!';
+      this.errorMessage = 'Name must have a comma and a space in the name!';
       error = true;
     }
 
