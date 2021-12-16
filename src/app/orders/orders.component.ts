@@ -41,7 +41,7 @@ export class OrdersComponent implements OnInit {
       inc += item.price * item.quantity;
       return inc;
     }, 0);
-    const taxAmount = total * .12;
+    const taxAmount = total * .1;
 
     const subTotal = total - taxAmount;
     console.log('from calculate() total: ', total, 'taxAmount', taxAmount, 'subTotal', subTotal);
@@ -53,7 +53,7 @@ export class OrdersComponent implements OnInit {
   }
 
   submit() {
-    const commaIndex = this.name.indexOf(' ');
+    const commaIndex = this.name.indexOf(', ');
     let error = false;
     if (this.name === '') {
       this.errorMessage = 'Name must not be empty!';
@@ -66,7 +66,7 @@ export class OrdersComponent implements OnInit {
     if (!error) {
       const firstName = this.name.slice(commaIndex + 1, this.name.length);
       const lastName = this.name.slice(0, commaIndex);
-      const fullName = lastName + ' ' + firstName;
+      const fullName = firstName + ' ' + lastName;
       const calculation = this.calculate();
       this.confirmMessage = `Thank you for your order ${fullName}. Your sub total is:
       ${calculation.subTotal}. The tax amount is ${calculation.taxAmount}. Your grand total is ${calculation.total}`;
@@ -188,20 +188,5 @@ export class OrdersComponent implements OnInit {
     // this.orders[2].price = '';
     // this.orders[2].quantity = '';
   }
-
-
-  // prepare result, splice last name, first name
-
-  // Calculate total and perform input validation
-
-  // display the order form with orders from orders.json
-
-  // Clear the orders form
-
-  // Add items 'Hot Dog', 'Hamberger' and 'Pizza' to list when corresponding button is clicked
-
-  // delete line item (order) when delete button is click
-
-  // read in the orders.json file and populate the list table with the initial orders (3)
 
 }
